@@ -1,0 +1,477 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D68A36329BD0256004413C6 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A36229BD0256004413C6 /* Cell.swift */; };
+		4D68A38B29BE27ED004413C6 /* EventViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */; };
+		F3CB02E02982E91D0078A0F9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D62982E91D0078A0F9 /* Event.swift */; };
+		F3CB02E12982E91D0078A0F9 /* EventRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D72982E91D0078A0F9 /* EventRegistry.swift */; };
+		F3CB02E22982E91D0078A0F9 /* DBParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D82982E91D0078A0F9 /* DBParameter.swift */; };
+		F3CB02E52982E91D0078A0F9 /* DBEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02DB2982E91D0078A0F9 /* DBEvent.swift */; };
+		F3CB02E62982E91D0078A0F9 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02DC2982E91D0078A0F9 /* EventManager.swift */; };
+		F3CB02E72982E91D0078A0F9 /* EventManager+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02DD2982E91D0078A0F9 /* EventManager+Model.swift */; };
+		F3CB02EA2982E9890078A0F9 /* ParameterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02E92982E9890078A0F9 /* ParameterSet.swift */; };
+		F3CB02ED2982E9CD0078A0F9 /* CoreData+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02EC2982E9CD0078A0F9 /* CoreData+Utilities.swift */; };
+		F3CB02F02982EB570078A0F9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F3CB02EF2982EB570078A0F9 /* SnapKit */; };
+		F3CB02F22982EBAB0078A0F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02F12982EBAB0078A0F9 /* AppDelegate.swift */; };
+		F3CB02F42982EBC60078A0F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02F32982EBC60078A0F9 /* SceneDelegate.swift */; };
+		F3CB02F62982EC100078A0F9 /* EventsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02F52982EC100078A0F9 /* EventsListViewController.swift */; };
+		F3CB02F92982EED00078A0F9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02F82982EED00078A0F9 /* LoginViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4D68A36229BD0256004413C6 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventViewer.xcdatamodel; sourceTree = "<group>"; };
+		F3CB02C12982E8D50078A0F9 /* EventViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3CB02CA2982E8D70078A0F9 /* EventViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventViewer.entitlements; sourceTree = "<group>"; };
+		F3CB02D62982E91D0078A0F9 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F3CB02D72982E91D0078A0F9 /* EventRegistry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRegistry.swift; sourceTree = "<group>"; };
+		F3CB02D82982E91D0078A0F9 /* DBParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBParameter.swift; sourceTree = "<group>"; };
+		F3CB02DB2982E91D0078A0F9 /* DBEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBEvent.swift; sourceTree = "<group>"; };
+		F3CB02DC2982E91D0078A0F9 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		F3CB02DD2982E91D0078A0F9 /* EventManager+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventManager+Model.swift"; sourceTree = "<group>"; };
+		F3CB02E92982E9890078A0F9 /* ParameterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterSet.swift; sourceTree = "<group>"; };
+		F3CB02EC2982E9CD0078A0F9 /* CoreData+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreData+Utilities.swift"; sourceTree = "<group>"; };
+		F3CB02F12982EBAB0078A0F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F3CB02F32982EBC60078A0F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F3CB02F52982EC100078A0F9 /* EventsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsListViewController.swift; sourceTree = "<group>"; };
+		F3CB02F72982ED060078A0F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3CB02F82982EED00078A0F9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F3CB02BE2982E8D50078A0F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3CB02F02982EB570078A0F9 /* SnapKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F3CB02B82982E8D50078A0F9 = {
+			isa = PBXGroup;
+			children = (
+				F3CB02C32982E8D50078A0F9 /* EventViewer */,
+				F3CB02C22982E8D50078A0F9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F3CB02C22982E8D50078A0F9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02C12982E8D50078A0F9 /* EventViewer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F3CB02C32982E8D50078A0F9 /* EventViewer */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02F12982EBAB0078A0F9 /* AppDelegate.swift */,
+				F3CB02F32982EBC60078A0F9 /* SceneDelegate.swift */,
+				F3CB02FB2982F1D80078A0F9 /* Resources */,
+				F3CB02EB2982E9B60078A0F9 /* Extensions */,
+				F3CB02E82982E9810078A0F9 /* Entities */,
+				F3CB02D32982E91D0078A0F9 /* Components */,
+				F3CB02FA2982F1B00078A0F9 /* Scenes */,
+				4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */,
+			);
+			path = EventViewer;
+			sourceTree = "<group>";
+		};
+		F3CB02D32982E91D0078A0F9 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02D72982E91D0078A0F9 /* EventRegistry.swift */,
+				F3CB02DC2982E91D0078A0F9 /* EventManager.swift */,
+				F3CB02DD2982E91D0078A0F9 /* EventManager+Model.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F3CB02E82982E9810078A0F9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02D62982E91D0078A0F9 /* Event.swift */,
+				F3CB02E92982E9890078A0F9 /* ParameterSet.swift */,
+				F3CB02D82982E91D0078A0F9 /* DBParameter.swift */,
+				F3CB02DB2982E91D0078A0F9 /* DBEvent.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		F3CB02EB2982E9B60078A0F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02EC2982E9CD0078A0F9 /* CoreData+Utilities.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F3CB02FA2982F1B00078A0F9 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02F52982EC100078A0F9 /* EventsListViewController.swift */,
+				F3CB02F82982EED00078A0F9 /* LoginViewController.swift */,
+				4D68A36229BD0256004413C6 /* Cell.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F3CB02FB2982F1D80078A0F9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F3CB02F72982ED060078A0F9 /* Info.plist */,
+				F3CB02CA2982E8D70078A0F9 /* EventViewer.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3CB02C02982E8D50078A0F9 /* EventViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3CB02D02982E8D70078A0F9 /* Build configuration list for PBXNativeTarget "EventViewer" */;
+			buildPhases = (
+				F3CB02BD2982E8D50078A0F9 /* Sources */,
+				F3CB02BE2982E8D50078A0F9 /* Frameworks */,
+				F3CB02BF2982E8D50078A0F9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EventViewer;
+			packageProductDependencies = (
+				F3CB02EF2982EB570078A0F9 /* SnapKit */,
+			);
+			productName = EventViewer;
+			productReference = F3CB02C12982E8D50078A0F9 /* EventViewer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F3CB02B92982E8D50078A0F9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					F3CB02C02982E8D50078A0F9 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = F3CB02BC2982E8D50078A0F9 /* Build configuration list for PBXProject "EventViewer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F3CB02B82982E8D50078A0F9;
+			packageReferences = (
+				F3CB02EE2982EB570078A0F9 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
+			productRefGroup = F3CB02C22982E8D50078A0F9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F3CB02C02982E8D50078A0F9 /* EventViewer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F3CB02BF2982E8D50078A0F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F3CB02BD2982E8D50078A0F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D68A38B29BE27ED004413C6 /* EventViewer.xcdatamodeld in Sources */,
+				F3CB02E62982E91D0078A0F9 /* EventManager.swift in Sources */,
+				F3CB02E72982E91D0078A0F9 /* EventManager+Model.swift in Sources */,
+				F3CB02F92982EED00078A0F9 /* LoginViewController.swift in Sources */,
+				F3CB02E22982E91D0078A0F9 /* DBParameter.swift in Sources */,
+				F3CB02F22982EBAB0078A0F9 /* AppDelegate.swift in Sources */,
+				4D68A36329BD0256004413C6 /* Cell.swift in Sources */,
+				F3CB02F62982EC100078A0F9 /* EventsListViewController.swift in Sources */,
+				F3CB02F42982EBC60078A0F9 /* SceneDelegate.swift in Sources */,
+				F3CB02E52982E91D0078A0F9 /* DBEvent.swift in Sources */,
+				F3CB02ED2982E9CD0078A0F9 /* CoreData+Utilities.swift in Sources */,
+				F3CB02E02982E91D0078A0F9 /* Event.swift in Sources */,
+				F3CB02E12982E91D0078A0F9 /* EventRegistry.swift in Sources */,
+				F3CB02EA2982E9890078A0F9 /* ParameterSet.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F3CB02CE2982E8D70078A0F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F3CB02CF2982E8D70078A0F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F3CB02D12982E8D70078A0F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EventViewer/Resources/EventViewer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7HXSBL2C9S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventViewer/Resources/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simla.EventViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F3CB02D22982E8D70078A0F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EventViewer/Resources/EventViewer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7HXSBL2C9S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EventViewer/Resources/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.simla.EventViewer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3CB02BC2982E8D50078A0F9 /* Build configuration list for PBXProject "EventViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3CB02CE2982E8D70078A0F9 /* Debug */,
+				F3CB02CF2982E8D70078A0F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F3CB02D02982E8D70078A0F9 /* Build configuration list for PBXNativeTarget "EventViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3CB02D12982E8D70078A0F9 /* Debug */,
+				F3CB02D22982E8D70078A0F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3CB02EE2982EB570078A0F9 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3CB02EF2982EB570078A0F9 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3CB02EE2982EB570078A0F9 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */,
+			);
+			currentVersion = 4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */;
+			path = EventViewer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F3CB02B92982E8D50078A0F9 /* Project object */;
+}
