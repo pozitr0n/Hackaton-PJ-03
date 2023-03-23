@@ -3,15 +3,39 @@
 //  EventViewer
 //
 //  Created by Ilya Kharlamov on 1/26/23.
+//  Updated by Raman Kozar
+//  Updated by Raman Kozar
 //
 
 import UIKit
+import CoreData
 
-class EventsListViewController: UITableViewController {
+protocol TableViewMyDelegate {
+    func deleteEventUpdateTableView(currentIndexPathItem: Int)
+    func reloadDataAndUpdateTableView(newOffset: Int)
+}
+
+class EventsListViewController: UIViewController {
     
-    let myTableView = UITableView()
+    private let myTableView = UITableView(frame: .zero, style: .insetGrouped)
+    private let searchController = UISearchController(searchResultsController: nil)
     
-    var arrayOfInformation: [String] = []
+    private var entities: [NSManagedObject] = [] {
+        didSet {
+            updateTableView()
+        }
+    }
+    
+    private var filteredEntities: [NSManagedObject] = []
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
+    var offset = 0
     
     // MARK: - Outlets
 
@@ -22,6 +46,13 @@ class EventsListViewController: UITableViewController {
         action: #selector(EventsListViewController.logout)
     )
     
+    private lazy var addNewEventBarButtonItem = UIBarButtonItem(
+        title: "Add event",
+        style: .plain,
+        target: self,
+        action: #selector(EventsListViewController.addNewEvent)
+    )
+    
     // MARK: - Variables
     
     private let eventManager: EventManager
@@ -30,7 +61,7 @@ class EventsListViewController: UITableViewController {
     
     init(eventManager: EventManager) {
         self.eventManager = eventManager
-        super.init(style: .insetGrouped)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -40,7 +71,8 @@ class EventsListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
-        arrayOfInformation = eventManager.getAllTheEvents(countLimit: 20)
+        configureSearchController()
+        loadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +91,7 @@ class EventsListViewController: UITableViewController {
         
         navigationItem.title = "Events List"
         navigationItem.rightBarButtonItem = self.logoutBarButtonItem
+        navigationItem.leftBarButtonItem = self.addNewEventBarButtonItem
         
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -71,49 +104,108 @@ class EventsListViewController: UITableViewController {
     
     // MARK: - Actions
     
-    @objc
-    private func logout() {
+    @objc private func logout() {
         eventManager.capture(.logout)
         let vc = LoginViewController(eventManager: eventManager)
         let navVc = UINavigationController(rootViewController: vc)
         present(navVc, animated: true)
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    @objc private func addNewEvent() {
+        let vc = CreateEventViewController(eventManager: eventManager, currentVC: self, newOffset: offset)
+        let navVc = UINavigationController(rootViewController: vc)
+        present(navVc, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfInformation.count
+    private func loadData() {
+        guard let data = eventManager.fetch(with: offset) else { return }
+        entities.append(contentsOf: data)
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    private func configureSearchController() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    func configureCell(cell: Cell, atIndexPath indexPath: IndexPath) {
+
+        var entity: NSManagedObject
+
+        if isFiltering {
+            entity = filteredEntities[indexPath.row]
+        } else {
+            entity = entities[indexPath.row]
+        }
+        
+        guard let entity = entity as? DBEvent,
+              let createdAt = entity.createdAt else { return }
+            
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+            
+        let value = "\(dateFormatter.string(from: createdAt)): \(entity.id)"
+
+        cell.myLabel.text = value
+    }
+    
+}
+
+extension EventsListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering {
+            return filteredEntities.count
+        }
+        
+        return entities.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let currCell = myTableView.dequeueReusableCell(withIdentifier: Cell.identifier, for: indexPath) as? Cell
         else {
             return UITableViewCell()
         }
     
-        currCell.myLabel.text = arrayOfInformation[indexPath.row]
+        configureCell(cell: currCell, atIndexPath: indexPath)
         
         return currCell
         
     }
-        
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+}
+
+extension EventsListViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         if scrollView.contentOffset.y + scrollView.frame.height >= scrollView.contentSize.height {
-            arrayOfInformation += eventManager.getAllTheEvents(countLimit: 20)
+            
+            offset += 20
+            guard let newEntities = eventManager.fetch(with: offset),
+                  newEntities.count > 0 else { return }
+            
+            entities.append(contentsOf: newEntities)
         }
-        
     }
     
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, handler) in
-            if self.eventManager.deleteEvent(currentIndex: indexPath.row) {
-                self.arrayOfInformation.remove(at: indexPath.row)
-                handler(true)
+            
+            self.eventManager.delete(with: self.entities[indexPath.item].objectID) { error in
+                
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                self.entities.remove(at: indexPath.item)
             }
         }
         
@@ -123,7 +215,50 @@ class EventsListViewController: UITableViewController {
         configuration.performsFirstActionWithFullSwipe = false
         
         return configuration
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        guard let event = entities[indexPath.item] as? DBEvent else { return }
+        
+        let vc = DetailEventViewController(event: event, currentIndexPathItem: indexPath.item, currentVC: self)
+        present(vc, animated: true)
+        
+    }
+}
+
+extension EventsListViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+    
+        guard let entities = eventManager.search(with: searchText) else { return }
+        
+        filteredEntities = entities
+        updateTableView()
+        
+    }
+}
+
+extension EventsListViewController: TableViewMyDelegate {
+    
+    func deleteEventUpdateTableView(currentIndexPathItem: Int) {
+        entities.remove(at: currentIndexPathItem)
+        updateTableView()
+    }
+    
+    func reloadDataAndUpdateTableView(newOffset: Int) {
+        guard let newEntities = eventManager.fetch(with: newOffset),
+              newEntities.count > 0 else { return }
+        
+        entities.append(contentsOf: newEntities)
+    }
+    
+    func updateTableView() {
+        myTableView.reloadData()
     }
     
 }

@@ -3,6 +3,7 @@
 //  EventViewer
 //
 //  Created by Raman Kozar on 11/03/2023.
+//  Updated by Raman Kozar
 //
 
 import UIKit
@@ -13,7 +14,6 @@ class Cell: UITableViewCell {
     
     let myLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect.init(x: 10, y: 45, width: 350, height: 40)
         label.textAlignment = .left
         label.textColor = .black
         return label
@@ -21,24 +21,27 @@ class Cell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(myLabel)
-    
+        setupLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupLayout() {
+        
+        contentView.addSubview(myLabel)
+        myLabel.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview().inset(6)
+        }
+    }
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1A079F29CAADA30064A024 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1A079E29CAADA30064A024 /* CreateEventViewController.swift */; };
 		4D68A36329BD0256004413C6 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A36229BD0256004413C6 /* Cell.swift */; };
-		4D68A38B29BE27ED004413C6 /* EventViewer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */; };
+		8B5F3D5129C238E30054CA2B /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5F3D5029C238E30054CA2B /* DetailEventViewController.swift */; };
 		F3CB02E02982E91D0078A0F9 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D62982E91D0078A0F9 /* Event.swift */; };
 		F3CB02E12982E91D0078A0F9 /* EventRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D72982E91D0078A0F9 /* EventRegistry.swift */; };
 		F3CB02E22982E91D0078A0F9 /* DBParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CB02D82982E91D0078A0F9 /* DBParameter.swift */; };
@@ -25,8 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D1A079E29CAADA30064A024 /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		4D68A36229BD0256004413C6 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EventViewer.xcdatamodel; sourceTree = "<group>"; };
+		8B5F3D5029C238E30054CA2B /* DetailEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		F3CB02C12982E8D50078A0F9 /* EventViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3CB02CA2982E8D70078A0F9 /* EventViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EventViewer.entitlements; sourceTree = "<group>"; };
 		F3CB02D62982E91D0078A0F9 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 				F3CB02E82982E9810078A0F9 /* Entities */,
 				F3CB02D32982E91D0078A0F9 /* Components */,
 				F3CB02FA2982F1B00078A0F9 /* Scenes */,
-				4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */,
 			);
 			path = EventViewer;
 			sourceTree = "<group>";
@@ -122,6 +123,8 @@
 				F3CB02F52982EC100078A0F9 /* EventsListViewController.swift */,
 				F3CB02F82982EED00078A0F9 /* LoginViewController.swift */,
 				4D68A36229BD0256004413C6 /* Cell.swift */,
+				8B5F3D5029C238E30054CA2B /* DetailEventViewController.swift */,
+				4D1A079E29CAADA30064A024 /* CreateEventViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -209,9 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D68A38B29BE27ED004413C6 /* EventViewer.xcdatamodeld in Sources */,
 				F3CB02E62982E91D0078A0F9 /* EventManager.swift in Sources */,
 				F3CB02E72982E91D0078A0F9 /* EventManager+Model.swift in Sources */,
+				4D1A079F29CAADA30064A024 /* CreateEventViewController.swift in Sources */,
 				F3CB02F92982EED00078A0F9 /* LoginViewController.swift in Sources */,
 				F3CB02E22982E91D0078A0F9 /* DBParameter.swift in Sources */,
 				F3CB02F22982EBAB0078A0F9 /* AppDelegate.swift in Sources */,
@@ -220,6 +223,7 @@
 				F3CB02F42982EBC60078A0F9 /* SceneDelegate.swift in Sources */,
 				F3CB02E52982E91D0078A0F9 /* DBEvent.swift in Sources */,
 				F3CB02ED2982E9CD0078A0F9 /* CoreData+Utilities.swift in Sources */,
+				8B5F3D5129C238E30054CA2B /* DetailEventViewController.swift in Sources */,
 				F3CB02E02982E91D0078A0F9 /* Event.swift in Sources */,
 				F3CB02E12982E91D0078A0F9 /* EventRegistry.swift in Sources */,
 				F3CB02EA2982E9890078A0F9 /* ParameterSet.swift in Sources */,
@@ -346,7 +350,7 @@
 				CODE_SIGN_ENTITLEMENTS = EventViewer/Resources/EventViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HXSBL2C9S;
+				DEVELOPMENT_TEAM = 3JQPLE5ZEK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -366,7 +370,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simla.EventViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rkozar.EventViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -386,7 +390,7 @@
 				CODE_SIGN_ENTITLEMENTS = EventViewer/Resources/EventViewer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7HXSBL2C9S;
+				DEVELOPMENT_TEAM = 3JQPLE5ZEK;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -406,7 +410,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.simla.EventViewer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rkozar.EventViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -459,19 +463,6 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		4D68A38929BE27ED004413C6 /* EventViewer.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */,
-			);
-			currentVersion = 4D68A38A29BE27ED004413C6 /* EventViewer.xcdatamodel */;
-			path = EventViewer.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = F3CB02B92982E8D50078A0F9 /* Project object */;
 }

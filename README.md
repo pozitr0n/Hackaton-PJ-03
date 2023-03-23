@@ -1,2 +1,2 @@
 # Hackaton-PJ-03
-Draft version of the hackathon. Will be completely redone.
+Final version of the hackathon. All the tasks has been done.

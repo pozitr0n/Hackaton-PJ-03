@@ -3,6 +3,7 @@
 //  EventViewer
 //
 //  Created by Ilya Kharlamov on 1/26/23.
+//  Updated by Raman Kozar
 //
 
 import UIKit

@@ -4,6 +4,7 @@
 //
 //  Created by Ilya Kharlamov on 11/30/22.
 //  Copyright © 2022 DIGITAL RETAIL TECHNOLOGIES, S.L. All rights reserved.
+//  Updated by Raman Kozar
 //
 
 import CoreData

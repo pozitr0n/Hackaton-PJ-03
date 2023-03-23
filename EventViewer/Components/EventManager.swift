@@ -4,6 +4,7 @@
 //
 //  Created by Ilya Kharlamov on 11/30/22.
 //  Copyright © 2022 DIGITAL RETAIL TECHNOLOGIES, S.L. All rights reserved.
+//  Updated by Raman Kozar
 //
 
 import CoreData
@@ -48,6 +49,27 @@ public final class EventManager: NSPersistentContainer {
             }
         })
     }
+    
+    public func captureCustomEvent(_ event: Event, dateOfEvent: Date) {
+        
+        performBackgroundTask({ context in
+            let newRecord = DBEvent(context: context)
+            newRecord.id = event.id
+            newRecord.createdAt = dateOfEvent
+            if !event.parameters.isEmpty {
+                newRecord.parameters = Set(event.parameters.map({
+                    DBParameter(parameter: $0, context: context)
+                }))
+            }
+            do {
+                try context.save()
+                print("Event \"\(event.id)\" saved")
+            } catch {
+                print("Error:", error.localizedDescription)
+            }
+        })
+        
+    }
 
     public func entitiesCount() -> Int {
         do {
@@ -55,6 +77,56 @@ public final class EventManager: NSPersistentContainer {
         } catch {
             print("Error:", error.localizedDescription)
             return .zero
+        }
+    }
+    
+    public func fetch(with offset: Int) -> [NSManagedObject]? {
+        
+        let fetchRequest = DBEvent.makeFetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: #keyPath(DBEvent.createdAt), ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.fetchLimit = 20
+        fetchRequest.fetchOffset = offset
+        
+        do {
+            return try viewContext.fetch(fetchRequest)
+        } catch {
+            print("Error:", error.localizedDescription)
+            return nil
+        }
+    }
+    
+    public func delete(with id: NSManagedObjectID, completion: ((Error?) -> Void)? = nil) {
+        performBackgroundTask { context in
+            do {
+                let entityToDelete = context.object(with: id)
+                context.delete(entityToDelete)
+                
+                if context.hasChanges {
+                    try context.save()
+                }
+                DispatchQueue.main.async {
+                    completion?(nil)
+                }
+            } catch {
+                print("Error:", error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion?(error)
+                }
+            }
+        }
+    }
+    
+    public func search(with id: String) -> [NSManagedObject]? {
+        
+        let request = DBEvent.makeFetchRequest()
+        request.predicate = NSPredicate(format: "id contains[c] %@", id)
+        
+        do {
+            return try viewContext.fetch(request)
+        } catch {
+            print("Error:", error.localizedDescription)
+            return nil
         }
     }
     

@@ -3,6 +3,7 @@
 //  EventManager
 //
 //  Created by Ilya Kharlamov on 6/17/22.
+//  Updated by Raman Kozar
 //
 
 import Foundation
